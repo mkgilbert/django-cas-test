@@ -122,3 +122,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
+AUTHENTICATION_BACKENDS = [
+    'main.auth.NAUCASBackend',
+    'django.contrib.auth.backends.ModelBackend'
+]
