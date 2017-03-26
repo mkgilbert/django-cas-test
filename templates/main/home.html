@@ -6,12 +6,13 @@
 </head>
 <body>
 <h1>Home</h1>
+<h3>Hello, {{ user.get_username }}</h3>
 <ul>
 {% for k, v in data.items %}
     <li>{{ k }}: {{ v }}</li>
 {% endfor %}
 </ul>
-<a href='https://cas.nau.edu/cas/index.jsp?service=http://localhost:8000'>login</a>
-<a href='http://localhost:8000?logout=true'>logout</a>
+<a href='http://localhost:8000/accounts/login'>login</a>
+<a href='http://localhost:8000/accounts/logout'>logout</a>
 </body>
 </html>

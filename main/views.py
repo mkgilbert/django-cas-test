@@ -5,17 +5,14 @@ from django.shortcuts import HttpResponseRedirect
 from django.contrib.auth.models import User
 from main.models import CVTUser
 
-def home(request, uid=None):
-    if uid is not None:
-        try:
-            user = User.objects.get(username=uid)
-            cvt_user = CVTUser.objects.get(user)
-            get_data = {"user": cvt_user.user.username}
-        except Exception:
-            get_data = {"info": "no logged in user"}
-    else:
-        get_data = {"info": "no uid provided"}
-    return render(request, "home.html", {"data": get_data})
+def home(request):
+    try:
+        user = request.user
+        #cvt_user = CVTUser.objects.get(user)
+        #get_data = {"user": cvt_user.user.username}
+    except Exception:
+        get_data = {"info": "no logged in user"}
+    return render(request, "home.html", {"user": user})
 
 def login(request):
     if request.META['QUERY_STRING']:
