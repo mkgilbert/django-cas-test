@@ -98,6 +98,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
+
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
@@ -125,7 +126,8 @@ STATIC_URL = '/static/'
 SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    'django_cas_ng.backends.CASBackend',
+    'main.auth.CASBackend',
 ]
 CAS_SERVER_URL = 'https://cas.nau.edu/cas/'
 CAS_CREATE_USER = True
+CAS_LOGOUT_COMPLETELY = False
