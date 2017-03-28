@@ -1,6 +1,6 @@
 import re
 import requests
-#import pamela
+import pamela
 from django.conf import settings
 from django.contrib.auth.models import User
 from django_cas_ng.backends import CASBackend
@@ -16,8 +16,8 @@ class NAUCASBackend(CASBackend):
     def user_can_authenticate(self, user):
         try:
             # if no exception is raised, the user exists in PAM LDAP on this system
-            #pamela.check_account(user.username)
-            user.username == 'mkg52'
+            pamela.check_account(user.username)
+            #user.username == 'mkg52'
         except Exception:
             user.delete()
             return False
